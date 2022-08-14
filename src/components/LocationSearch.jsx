@@ -10,48 +10,35 @@ const choices = [
 ];
 
 const LocationSearch = () => {
-    return (
-      <Paper
-        sx={{
-          borderRadius: 20,
-          ml: 15,
-        }}
-        elevation={3}
+  return (
+    <Paper sx={{ borderRadius: 20, ml: 15 }} elevation={3}>
+      <Stack
+        sx={{ borderRadius: 20, pl: 2 }}
+        divider={<Divider orientation="vertical" flexItem />}
       >
-        <Stack
-          sx={{
-            borderRadius: 20,
-            pl: 2,
-          }}
-          divider={<Divider orientation="vertical" flexItem />}
-        >
-          {choices.map((choice) => {
-            return (
-              <Button key={choice.id}>
-                <Typography
-                  sx={{
-                    color: (theme) => theme.palette.text.primary,
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {choice.text}
-                </Typography>
-                {choice.withIcon && (
-                  <Box
-                    sx={{
-                      ml: 1,
-                      mt: 1,
-                      mr: 1,
-                    }}
-                  >
-                    <IoSearchCircleSharp color={pink[500]} size={32} />
-                  </Box>
-                )}
-              </Button>
-            );
-          })}
-        </Stack>
-      </Paper>
-    );
-  };
+        {choices.map((choice) => {
+          return (
+            <Button key={choice.id}>
+              <Typography
+                sx={{
+                  color: (theme) => theme.palette.text.primary,
+                  fontWeight: "bold",
+                }}
+              >
+                {choice.text}
+              </Typography>
+
+              {choice.withIcon && (
+                <Box sx={{ ml: 1, mt: 1, mr: 1 }}>
+                  <IoSearchCircleSharp color={pink[500]} size={32} />
+                </Box>
+              )}
+            </Button>
+          );
+        })}
+      </Stack>
+    </Paper>
+  );
+};
+
 export default LocationSearch;
